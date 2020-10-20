@@ -30,7 +30,13 @@ body{
 main{
 	padding-bottom: 10em;
 }
-
+a{
+	color: var(--accent-color);
+	text-decoration: none;
+}
+a:hover{
+	color: var(--accent-hc-color);
+}
 p{
 	margin-top: 0;
 	color: var(--text-color);
@@ -42,7 +48,7 @@ p a{
 }
 
 header{
-	margin: 4em 0;
+	margin: 1em 0 4em;
 }
 
 header h1{
@@ -58,9 +64,13 @@ main h2{
 	font-family: 'Playfair Display', serif;
 	font-variation-settings: 'wght' 900;
 	font-size: 3em;
+	margin: 1em 0 0 0;
 	line-height: 1.1;
-	margin: 0 0 2em 0;
 	color: var(--accent-color);
+}
+
+.hero-header{
+	margin: 0 0 2em 0;
 }
 
 article{
