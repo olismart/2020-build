@@ -39,7 +39,7 @@ a{
 a:hover{
 	color: var(--accent-hc-color);
 }
-p{
+p, li{
 	margin-top: 0;
 	color: var(--text-color);
 	font-variation-settings: 'wght' 350;
@@ -65,21 +65,22 @@ main h2{
 	font-weight: 400;
 	font-family: 'Playfair Display', serif;
 	font-variation-settings: 'wght' 900;
-	font-size: 3em;
 	margin: 1em 0 0 0;
+	font-size: 3em;
 	line-height: 1.1;
 	color: var(--accent-color);
 }
 
 .hero-header{
 	margin: 0 0 2em 0;
+	font-size: 3em;
 }
 
 article{
 	margin-bottom: 5em;
 }
 
-.body-text{
+.body-text, .item p{
 	max-width: 50ch;
 }
 
@@ -90,7 +91,7 @@ article{
 }
 
 .item{
-	margin: 2em 0;
+	margin: 1em 0 3em;
 }
 .item h3{
 	color: #e02a00;
@@ -121,6 +122,21 @@ article{
 	text-decoration: none;
 }
 
+.skill-list{
+	padding: 0;
+}
+.skill-list li{
+	display: inline;
+}
+
+.skill-list li::after{
+	content: " ⌇";
+	opacity: 50%;
+}
+
+
+
+
 @media screen and (min-width: 600px) {
 	.wrapper{
 		padding: 0 2em;
@@ -131,7 +147,7 @@ article{
 	.wrapper{
 		padding: 0 4em;
 	}
-	main h2{
+	.hero-header{
 		font-size: 3.5em;
 	}
 	.portrait{
@@ -141,7 +157,7 @@ article{
 }
 
 @media screen and (min-width: 1300px) {
-	main h2{
+	.hero-header{
 		font-size: 5em;
 	}
 }
