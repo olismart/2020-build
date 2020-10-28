@@ -68,12 +68,13 @@ main h2{
 	margin: 1em 0 0 0;
 	font-size: 3em;
 	line-height: 1.1;
-	color: var(--accent-color);
+	color: var(--text-color);
 }
 
 .hero-header{
 	margin: 0 0 2em 0;
 	font-size: 3em;
+	color: var(--accent-color);
 }
 
 article{
@@ -111,7 +112,7 @@ article{
 	padding: 0.5em 1em;
 	border: 0;
 	border-radius: 0.5em;
-	background-color: var(--heading-color);
+	background-color: var(--accent-color);
 	font: inherit;
 }
 .contact p{
@@ -131,9 +132,11 @@ article{
 
 .skill-list li::after{
 	content: " ⌇";
-	opacity: 50%;
+	color: var(--accent-color);
 }
-
+.skill-list li:last-of-type::after{
+	content: none;
+}
 
 
 
