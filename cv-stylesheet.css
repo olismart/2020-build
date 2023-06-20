@@ -81,7 +81,7 @@ article{
 	margin-bottom: 5em;
 }
 
-.body-text, .item p{
+.body-text, .item li{
 	max-width: 50ch;
 }
 
@@ -99,7 +99,7 @@ article{
 	margin: 0;
 	font-weight: 400;
 	font-variation-settings: 'wght' 600;
-	color: #e02a00;
+	color: var(--accent-color);
 }
 
 .item aside{
@@ -108,19 +108,8 @@ article{
 	font-variation-settings: 'wght' 250;
 	font-style: italic;
 }
-.contact button{
-	padding: 0.5em 1em;
-	border: 0;
-	border-radius: 0.5em;
-	background-color: var(--accent-color);
-	font: inherit;
-}
-.contact p{
-	margin: 0.5em 0;
-}
-.contact button a{
-	color: white;
-	text-decoration: none;
+.item li{
+	margin-bottom: 0.25em;
 }
 
 .skill-list{
