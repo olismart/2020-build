@@ -1,6 +1,6 @@
 :root {
-	--accent-color: #ff4115;
-    --accent-hc-color: #e02a00;
+	--accent-color: #78CB8D;
+    --accent-hc-color: #78CB8D;
     --text-color: #323232;
     --background-color: #;
 }
@@ -17,7 +17,7 @@ body{
 	background-image: url('img/contours.svg');
 	background-attachment: fixed;
 	background-size: cover;
-	font-family: 'Work Sans', sans-serif;
+	font-family: "Bricolage Grotesque", sans-serif;
 	font-size: 18px;
 	font-size: min(max(1.1rem, 4vw), 24px);
 	line-height: 1.45;
@@ -63,8 +63,7 @@ header h1{
 
 main h2{
 	font-weight: 400;
-	font-family: 'Playfair Display', serif;
-	font-variation-settings: 'wght' 900;
+	font-variation-settings: 'wght' 400;
 	margin: 1em 0 0 0;
 	font-size: 3em;
 	line-height: 1.1;
