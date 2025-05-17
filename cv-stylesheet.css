@@ -1,7 +1,7 @@
 :root {
 	--accent-color: #78CB8D;
     --accent-hc-color: #78CB8D;
-    --text-color: #323232;
+    --text-color: #4C5652;
     --background-color: #;
 }
 html{
@@ -18,7 +18,7 @@ body{
 	background-attachment: fixed;
 	background-size: cover;
 	font-family: "Bricolage Grotesque", sans-serif;
-	font-size: 18px;
+	font-size: 16px;
 	font-size: min(max(1.1rem, 4vw), 24px);
 	line-height: 1.45;
 	text-size-adjust: none;
@@ -42,7 +42,7 @@ a:hover{
 p, li{
 	margin-top: 0;
 	color: var(--text-color);
-	font-variation-settings: 'wght' 350;
+	font-variation-settings: 'wght' 300;
 }
 
 p a{
@@ -55,7 +55,8 @@ header{
 
 header h1{
 	font-size: 1em;
-	font-variation-settings: 'wght' 350;
+	font-weight: 800;
+	font-variation-settings: 'wght' 800;
 	line-height: 0.85;
 	margin-bottom: 0;
 	color: var(--accent-color);
@@ -73,6 +74,7 @@ main h2{
 .hero-header{
 	margin: 0 0 2em 0;
 	font-size: 3em;
+	line-height: 0.9;
 	color: var(--accent-color);
 }
 
@@ -96,8 +98,8 @@ article{
 .item h3{
 	color: #e02a00;
 	margin: 0;
-	font-weight: 400;
-	font-variation-settings: 'wght' 600;
+	font-weight: 500;
+	font-variation-settings: 'wght' 500;
 	color: var(--accent-color);
 }
 
