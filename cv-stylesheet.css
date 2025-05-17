@@ -2,7 +2,6 @@
 	--accent-color: #78CB8D;
     --accent-hc-color: #78CB8D;
     --text-color: #4C5652;
-    --background-color: #;
 }
 html{
 	margin: 0;
@@ -19,7 +18,7 @@ body{
 	background-size: cover;
 	font-family: "Bricolage Grotesque", sans-serif;
 	font-size: 16px;
-	font-size: min(max(1.1rem, 4vw), 24px);
+	font-size: min(max(1.1rem, 4vw), 22px);
 	line-height: 1.45;
 	text-size-adjust: none;
 }
@@ -110,7 +109,13 @@ article{
 	font-style: italic;
 }
 .item li{
-	margin-bottom: 0.25em;
+	margin-bottom: 0.5em;
+}
+.skills .item{
+	margin: 1em 0 0 ;
+}
+.skills .skill-list{
+	margin: 0;
 }
 
 .skill-list{
@@ -133,6 +138,17 @@ article{
 @media screen and (min-width: 600px) {
 	.wrapper{
 		padding: 0 2em;
+	}
+	.skills{
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1em;
+	}
+	.skills .item{
+		max-width: 45%;
+	}
+	.skills .skill-list{
+		margin: 0;
 	}
 }
 
