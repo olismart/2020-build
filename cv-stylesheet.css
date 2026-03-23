@@ -97,6 +97,7 @@ article{
 .item h3{
 	color: #e02a00;
 	margin: 0;
+	font-size: 1.5em;
 	font-weight: 500;
 	font-variation-settings: 'wght' 500;
 	color: var(--accent-color);
@@ -106,7 +107,7 @@ article{
 	margin: 0;
 	color: var(--text-color);
 	font-variation-settings: 'wght' 250;
-	font-style: italic;
+	opacity: 0.7;
 }
 .item li{
 	margin-bottom: 0.5em;
@@ -128,6 +129,7 @@ article{
 .skill-list li::after{
 	content: " ⌇";
 	color: var(--accent-color);
+	opacity: 0.5;
 }
 .skill-list li:last-of-type::after{
 	content: none;
