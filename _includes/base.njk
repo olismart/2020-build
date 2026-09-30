@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Oli Smart">
+    <meta name="description" content="{{ description or 'Thoughts on product design, UX, and technology.' }}">
+    <title>{{ title or 'Blog' }} — Oli Smart</title>
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/cv-stylesheet.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="/">Oli Smart</a></h1>
+        <p>
+          <a href="/">home</a> ⌇
+          <a href="/resume.html">resumé</a> ⌇
+          <a href="/blog/">blog</a>
+        </p>
+      </header>
+      <main>
+        <article>
+          {% if date %}
+            <aside class="post-date">{{ date | postDate }}</aside>
+          {% endif %}
+          <h2>{{ title }}</h2>
+          <div class="body-text">
+            {{ content | safe }}
+          </div>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>

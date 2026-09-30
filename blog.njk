@@ -1,0 +1,51 @@
+---
+title: Blog
+description: Thoughts on product design, UX, and technology.
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="Oli Smart">
+    <meta name="description" content="Thoughts on product design, UX, and technology.">
+    <title>Blog — Oli Smart</title>
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/cv-stylesheet.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="/">Oli Smart</a></h1>
+        <p>
+          <a href="/">home</a> ⌇
+          <a href="/resume.html">resumé</a> ⌇
+          <a href="/blog/">blog</a>
+        </p>
+      </header>
+      <main>
+        <h2>Blog</h2>
+        <p class="subtitle">Thoughts on product design, UX, and technology.</p>
+
+        <div class="body-text">
+          {% if collections.posts.length > 0 %}
+            {% for post in collections.posts %}
+              <div class="item">
+                <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+                <aside>{{ post.date | postDate }}</aside>
+                {% if post.data.description %}
+                  <p>{{ post.data.description }}</p>
+                {% endif %}
+              </div>
+            {% endfor %}
+          {% else %}
+            <p>No posts yet — check back soon!</p>
+          {% endif %}
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
