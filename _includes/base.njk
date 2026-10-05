@@ -8,7 +8,7 @@
     <title>{{ title or 'Blog' }} — Oli Smart</title>
     <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/cv-stylesheet.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Recursive:MONO,CASL@1,0.4&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -22,7 +22,7 @@
         </p>
       </header>
       <main>
-        <article>
+        <article{% if date %} class="blog-post"{% endif %}>
           <div class='hero-header'>
             <h2>{{ title }}</h2>
             {% if date %}
@@ -32,6 +32,9 @@
           <div class="body-text">
             {{ content | safe }}
           </div>
+          {% if date %}
+            <p><a href="/blog/">← Back to blog</a></p>
+          {% endif %}
         </article>
       </main>
     </div>

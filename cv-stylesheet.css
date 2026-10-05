@@ -91,6 +91,37 @@ article{
 	margin-bottom: 5em;
 }
 
+code{
+	font-family: "Recursive", monospace;
+	font-variation-settings: 'MONO' 1, 'CASL' 0.4;
+	font-weight: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	color: var(--text-color);
+}
+
+p code, li code{
+	font-size: 0.9em;
+}
+
+pre{
+	font-family: "Recursive", monospace;
+	font-variation-settings: 'MONO' 1, 'CASL' 0.4;
+	color: var(--text-color);
+}
+
+.blog-post .post-date{
+	opacity: 0.7;
+	font-variation-settings: 'wght' 200;
+}
+
+.blog-post img{
+    max-width: 100%;
+    height: auto;
+    border: 1px solid color-mix(in srgb, var(--text-color) 30%, transparent);
+	border-radius: 0.125em;
+}
+
 .body-text, .item li, .blog-preview li{
 	max-width: 50ch;
 }
@@ -115,7 +146,7 @@ article{
 .item aside{
 	margin: 0;
 	color: var(--text-color);
-	font-variation-settings: 'wght' 250;
+	font-variation-settings: 'wght' 200;
 	opacity: 0.7;
 }
 .item li{
@@ -138,7 +169,7 @@ article{
 .blog-preview aside{
 	margin: 0;
 	color: var(--text-color);
-	font-variation-settings: 'wght' 250;
+	font-variation-settings: 'wght' 200;
 	opacity: 0.7;
 }
 .blog-preview li{

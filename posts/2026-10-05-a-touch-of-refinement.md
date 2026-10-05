@@ -7,13 +7,13 @@ layout: base.njk
 
 [Adding a blog to this site](/posts/2026-10-01-hello-world/) has effectively doubled the number of page layouts I use - only from 2 to 4, but it still puts some strain on the very lean typographic system I’ve been using. 
 
-Deepseek did a pretty good job of keeping the general vibe of the site, and didn’t introduce anything unexpected in the CSS - in fact it’s maintained my style of writing CSS and HTML so far. It’l be interesting to see how this continues as I add more features.
+Deepseek did a pretty good job of keeping the general vibe of the site, and didn’t introduce anything unexpected in the CSS - in fact it’s maintained my style of writing CSS and HTML so far. It’ll be interesting to see how this continues as I add more features.
 
 ![The original blog list design](original-blog-list.png)
 
 ![The original blog list design](original-blog-post.png)
 
-Looking at the code, I could see that a lot of the issues came from overlay broad CSS classes - such as `.item h2`. Scoping the page specific layouts more closely quickly solved that but I suspect I’ll need a more comprehensive approach to typography if I want to stay in control.
+Looking at the code, I could see that a lot of the issues came from overly broad CSS classes - such as `.item h2`. Scoping the page specific layouts more closely quickly solved that but I suspect I’ll need a more comprehensive approach to typography if I want to stay in control.
 
 One other issue these changes created was some inconsistencies in colour use; I originally used my accent colour for links, but also for some more ‘decorative’ touches. I always try and use a single colour to signal interactive elements as much as possible, so I stripped back colour from any headings that weren’t tappable and applied global CSS rules for links (no need for buttons…yet).
 
