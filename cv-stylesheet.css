@@ -32,12 +32,19 @@ main{
 	padding-bottom: 10em;
 }
 a{
-	color: var(--accent-color);
+	color: var(--accent-hc-color);
 	text-decoration: none;
 	transition: 0.3s ease;
 }
+a:visited{
+	color: var(--accent-hc-color);
+}
 a:hover{
 	color: var(--accent-hc-color);
+	text-decoration-line: underline;
+	text-decoration-style: wavy;
+	text-decoration-color: var(--accent-hc-color);
+	text-underline-offset: 0.2em;
 }
 p, li{
 	margin-top: 0;
@@ -45,15 +52,8 @@ p, li{
 	font-variation-settings: 'wght' 300;
 }
 
-p a{
-	color: var(--accent-hc-color);
-}
-
 header{
 	margin: 1em 0 4em;
-}
-header a{
-	color: inherit;
 }
 
 header h1{
@@ -62,13 +62,15 @@ header h1{
 	font-variation-settings: 'wght' 800;
 	line-height: 0.85;
 	margin-bottom: 0;
-	color: var(--accent-color);
+	color: var(--text-color);
 }
-
+header h1 a, header h1 a:hover, header h1 a:visited{
+	color: var(--text-color);
+}
 main h2{
 	font-weight: 400;
 	font-variation-settings: 'wght' 400;
-	margin: 1em 0 0 0;
+	margin: 1em 0 0.3em 0;
 	font-size: 2em;
 	line-height: 1.1;
 	color: var(--text-color);
@@ -77,18 +79,19 @@ main h2{
 .hero-header{
 	margin: 0 0 2em 0;
 	line-height: 0.9;
-	color: var(--accent-color);
+	color: var(--text-color);
 }
 .hero-header h2,
 h2.hero-header{
 	font-size: 3em;
+	margin-bottom: 0.3em;
 }
 
 article{
 	margin-bottom: 5em;
 }
 
-.body-text, .item li{
+.body-text, .item li, .blog-preview li{
 	max-width: 50ch;
 }
 
@@ -102,12 +105,11 @@ article{
 	margin: 1em 0 3em;
 }
 .item h3{
-	color: #e02a00;
-	margin: 0;
+	color: var(--text-color);
+	margin: 0 0 0.3em 0;
 	font-size: 1.5em;
 	font-weight: 500;
 	font-variation-settings: 'wght' 500;
-	color: var(--accent-color);
 }
 
 .item aside{
@@ -119,6 +121,30 @@ article{
 .item li{
 	margin-bottom: 0.5em;
 }
+
+.blog-preview{
+	margin: 1em 0 3em;
+}
+.blog-preview h3{
+	color: var(--text-color);
+	margin: 0 0 0.3em 0;
+	font-size: 1.5em;
+	font-weight: 500;
+	font-variation-settings: 'wght' 500;
+}
+.blog-preview p{
+	margin: 0;
+}	
+.blog-preview aside{
+	margin: 0;
+	color: var(--text-color);
+	font-variation-settings: 'wght' 250;
+	opacity: 0.7;
+}
+.blog-preview li{
+	margin-bottom: 0.5em;
+}
+
 .skills .item{
 	margin: 1em 0 0 ;
 }
