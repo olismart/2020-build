@@ -7,6 +7,8 @@ html{
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-size: 16px;
+	font-size: min(max(1.1rem, 4vw), 22px);
 }
 
 body{
@@ -17,8 +19,6 @@ body{
 	background-attachment: fixed;
 	background-size: cover;
 	font-family: "Bricolage Grotesque", sans-serif;
-	font-size: 16px;
-	font-size: min(max(1.1rem, 4vw), 22px);
 	line-height: 1.45;
 	text-size-adjust: none;
 }
@@ -69,16 +69,19 @@ main h2{
 	font-weight: 400;
 	font-variation-settings: 'wght' 400;
 	margin: 1em 0 0 0;
-	font-size: 3em;
+	font-size: 2em;
 	line-height: 1.1;
 	color: var(--text-color);
 }
 
 .hero-header{
 	margin: 0 0 2em 0;
-	font-size: 3em;
 	line-height: 0.9;
 	color: var(--accent-color);
+}
+.hero-header h2,
+h2.hero-header{
+	font-size: 3em;
 }
 
 article{
@@ -162,7 +165,8 @@ article{
 	.wrapper{
 		padding: 0 4em;
 	}
-	.hero-header{
+	.hero-header h2,
+	h2.hero-header{
 		font-size: 3.5em;
 	}
 	.portrait{
@@ -172,7 +176,8 @@ article{
 }
 
 @media screen and (min-width: 1300px) {
-	.hero-header{
+	.hero-header h2,
+	h2.hero-header{
 		font-size: 5em;
 	}
 }
