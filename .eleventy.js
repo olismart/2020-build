@@ -13,6 +13,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("ssd");
   eleventyConfig.addPassthroughCopy("legacy");
   eleventyConfig.addPassthroughCopy("cv-stylesheet.css");
+  eleventyConfig.addPassthroughCopy("js");
 
   // Copy .html files as-is (they aren't templates)
   eleventyConfig.addPassthroughCopy("index.html");

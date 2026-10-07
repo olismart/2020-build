@@ -1,7 +1,30 @@
 :root {
 	--accent-color: #78CB8D;
-    --accent-hc-color: #78CB8D;
-    --text-color: #4C5652;
+	--accent-hc-color: #78CB8D;
+	--text-color: #4C5652;
+	--bg-color: #fcfcfc;
+	color-scheme: light;
+}
+
+/* ── Dark colour scheme ─────────────────────────────────────────────
+   Applied via <html data-theme="dark"> (set by js/theme.js before first
+   paint), or via the system preference when JS is unavailable. */
+[data-theme="dark"] {
+	--accent-color: #78CB8D;
+	--accent-hc-color: #78CB8D;
+	--text-color: #C2C9C4;
+	--bg-color: #1F2422;
+	color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme]) {
+		--accent-color: #78CB8D;
+		--accent-hc-color: #78CB8D;
+		--text-color: #C2C9C4;
+		--bg-color: #1F2422;
+		color-scheme: dark;
+	}
 }
 html{
 	margin: 0;
@@ -14,13 +37,21 @@ html{
 body{
 	margin: 0;
 	padding: 0;
-	background-color: #fcfcfc;
+	background-color: var(--bg-color);
 	background-image: url('img/contours.svg');
 	background-attachment: fixed;
 	background-size: cover;
 	font-family: "Bricolage Grotesque", sans-serif;
 	line-height: 1.45;
 	text-size-adjust: none;
+}
+[data-theme="dark"] body{
+	background-image: url('img/contours-dark.svg');
+}
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme]) body{
+		background-image: url('img/contours-dark.svg');
+	}
 }
 .wrapper{
 	margin: 1em auto;
@@ -53,10 +84,15 @@ p, li{
 }
 
 header{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
 	margin: 1em 0 4em;
 }
 
 header h1{
+	order: 1;
+	flex: 1 1 auto;
 	font-size: 1em;
 	font-weight: 800;
 	font-variation-settings: 'wght' 800;
@@ -66,6 +102,84 @@ header h1{
 }
 header h1 a, header h1 a:hover, header h1 a:visited{
 	color: var(--text-color);
+}
+header p{
+	order: 3;
+	flex-basis: 100%;
+}
+
+/* ── Theme toggle ───────────────────────────────────────────────────
+   A switch at the top right of the header: the thumb carries the icon of
+   the active scheme (sun = light, moon = dark). Hidden entirely when JS
+   is unavailable, since there would be nothing for it to do there. */
+.theme-toggle{
+	order: 2;
+	position: relative;
+	flex: 0 0 auto;
+	display: none;
+	/* Form controls don't inherit the root font-size, so set this switch's
+	   em basis explicitly. 0.5em keeps it compact on small screens;
+	   restored to 0.6em (the approved desktop size) at 600px below */
+	font-size: 0.5em;
+	width: calc(4.5em + 24px);
+	height: calc(2.5em + 12px);
+	padding: 0;
+	box-sizing: border-box;
+	border: 3px solid var(--text-color);
+	border-radius: 999px;
+	background-color: color-mix(in srgb, var(--text-color) 15%, var(--bg-color));
+	cursor: pointer;
+	opacity: 0.5;
+}
+html.js .theme-toggle{
+	display: inline-flex;
+}
+.theme-toggle:hover{
+	background-color: color-mix(in srgb, var(--text-color) 25%, var(--bg-color));
+}
+.theme-toggle:focus-visible{
+	outline: 2px solid var(--accent-hc-color);
+	outline-offset: 2px;
+}
+.theme-toggle .thumb{
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 2.5em;
+	height: 2.5em;
+	border-radius: 50%;
+	background-color: var(--text-color);
+	color: var(--bg-color);
+}
+[data-theme="dark"] .theme-toggle .thumb{
+	transform: translateX(calc(2em + 12px));
+}
+.theme-toggle .icon{
+	position: absolute;
+	inset: 0;
+	margin: auto;
+	width: 1.5em;
+	height: 1.5em;
+}
+.theme-toggle .icon-moon{
+	opacity: 0;
+}
+[data-theme="dark"] .theme-toggle .icon-sun{
+	opacity: 0;
+}
+[data-theme="dark"] .theme-toggle .icon-moon{
+	opacity: 1;
+}
+@media (prefers-reduced-motion: no-preference){
+	.theme-toggle{
+		transition: background-color 0.3s ease;
+	}
+	.theme-toggle .thumb{
+		transition: transform 0.25s ease;
+	}
+	.theme-toggle .icon{
+		transition: opacity 0.25s ease;
+	}
 }
 main h2{
 	font-weight: 400;
@@ -215,6 +329,9 @@ pre{
 	}
 	.skills .skill-list{
 		margin: 0;
+	}
+	.theme-toggle{
+		font-size: 0.6em; /* the approved desktop size */
 	}
 }
 
