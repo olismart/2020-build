@@ -110,6 +110,13 @@ header p{
 header p a[aria-current]{
 	color: var(--text-color);
 }
+/* Header nav separator: a bullet between the links */
+header p a:not(:last-of-type)::after{
+	content: "•";
+	color: var(--text-color);
+	opacity: 0.5;
+	margin-inline: 0.5em;
+}
 
 /* ── Theme toggle ───────────────────────────────────────────────────
    A switch at the top right of the header: the thumb carries the icon of
@@ -266,6 +273,10 @@ pre{
 	font-variation-settings: 'wght' 200;
 	opacity: 0.7;
 }
+.item ul{
+	padding-left: 0.5em;
+}
+
 .item li{
 	margin-bottom: 0.5em;
 }
@@ -296,25 +307,6 @@ pre{
 .skills .item{
 	margin: 1em 0 0 ;
 }
-.skills .skill-list{
-	margin: 0;
-}
-
-.skill-list{
-	padding: 0;
-}
-.skill-list li{
-	display: inline;
-}
-
-.skill-list li::after{
-	content: " ⌇";
-	color: var(--accent-color);
-	opacity: 0.5;
-}
-.skill-list li:last-of-type::after{
-	content: none;
-}
 
 
 
@@ -329,9 +321,6 @@ pre{
 	}
 	.skills .item{
 		max-width: 45%;
-	}
-	.skills .skill-list{
-		margin: 0;
 	}
 	.theme-toggle{
 		font-size: 0.6em; /* the approved desktop size */
