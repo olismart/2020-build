@@ -1,0 +1,60 @@
+# Project guidance
+
+## Purpose and approach
+- This is Oli Smart's personal UX and product design site, resumé and blog.
+- Keep it lightweight: static HTML generated at build time, plain CSS and vanilla JavaScript.
+- Reuse the existing Eleventy and Nunjucks setup. Do not introduce frameworks, CSS preprocessors, UI libraries, client-side templating or new dependencies unless explicitly requested or agreed.
+- Prefer small, focused changes over broad refactors. Preserve existing content, visual character and public URLs unless asked to change them.
+- Inspect relevant source files and the working-tree diff before editing. Preserve unrelated uncommitted work; do not reset, stage or commit it without instruction.
+
+## Stack and commands
+- Eleventy 3 is the only declared development dependency; configuration uses CommonJS in `.eleventy.js`.
+- Node 18 is currently specified by `.nvmrc` and `netlify.toml`. Do not silently change runtime requirements.
+- Install locked dependencies with `npm ci` when needed.
+- Build: `npm run build`.
+- Local development server: `npm run serve`.
+- Netlify builds with `npm run build` and publishes `_site/`.
+- There is currently no configured test runner, linter or formatter. Do not claim those checks ran or add tooling just for a small change.
+
+## Source structure
+- `index.njk`: homepage, explicitly published at `/index.html` (served as `/`).
+- `resume.njk`: resumé, explicitly published at `/resume.html`.
+- `blog.njk`: blog index, published at `/blog/`.
+- `_includes/header.njk`: single shared header, navigation and theme-toggle markup. Include it rather than duplicating it.
+- `_includes/base.njk`: blog-post layout; do not assume all pages use this layout.
+- `posts/*.md`: blog content with YAML front matter (`title`, `date`, `description`, `layout: base.njk`). Follow the existing dated filename convention.
+- `cv-stylesheet.css`: shared stylesheet.
+- `js/theme.js`: light/dark theme behaviour.
+- `img/`: static images, with blog images in `img/blog/`.
+- `legacy/`: passthrough historical site; leave it alone unless the task concerns it.
+- `_site/`: generated, gitignored build output. Never edit it as source or commit it.
+- `node_modules/`: installed dependencies, not project source.
+
+## Templates, URLs and blog behaviour
+- Only `.njk` and `.md` are configured as templates. Assets and legacy HTML use explicit passthrough copies in `.eleventy.js`.
+- Preserve homepage and resumé permalinks when changing templates. Do not reintroduce their old HTML passthrough entries.
+- Prefer root-relative internal links in shared markup so nested post URLs work correctly.
+- Keep all three navigation links visible on every current site page: home, resumé and blog, separated by `⌇`.
+- Mark exact navigation matches with `aria-current="page"`; on individual posts mark blog with `aria-current="location"`.
+- Active navigation uses `var(--text-color)` only, without changing its font weight. Other links retain the accent colour. Preserve this choice unless asked otherwise.
+- The posts collection is built from `posts/*.md` and reversed. Preserve existing collection behaviour unless the task requires a change.
+- Use the existing `postDate` filter for displayed dates (en-GB formatting).
+- The blog-image transform rewrites relative, double-quoted HTML image `src` values to `/img/blog/` on post output pages. Absolute paths, HTTP(S) URLs and data URIs are excluded. Do not assume it handles other attributes or image optimisation.
+
+## Styling and accessibility
+- Match the surrounding indentation, quoting and formatting; do not reformat unrelated code.
+- Use existing CSS custom properties for colours rather than scattering hard-coded values.
+- Support both light and dark themes, including the system-preference fallback when JavaScript is unavailable.
+- Preserve the existing typography, responsive sizing, variable-font settings and wavy link-hover treatment unless a design change is requested.
+- Scope new CSS to the relevant component or page to avoid changing unrelated layouts.
+- Keep links keyboard-accessible and preserve visible focus behaviour, meaningful image alt text and accessible control names/states.
+- Keep the theme script synchronous in the head so the theme is set before first paint. It follows system preference until the visitor chooses a theme, then stores that choice in sessionStorage.
+- Preserve the theme toggle's switch semantics and aria-checked synchronisation, and its hidden state when JavaScript is unavailable. Do not replace sessionStorage with persistent storage without agreement.
+
+## Validation and delivery
+- Run `npm run build` after implementation and `git diff --check` before finishing.
+- Inspect all changed/new source files and the final diff; ensure unrelated user edits remain intact.
+- For shared-template changes, inspect generated homepage, resumé, blog index and post pages for correct URLs, links, active states, a single header/toggle and no unrendered template syntax.
+- For CSS or interaction changes, check narrow and wide layouts, both colour schemes and keyboard behaviour in a browser when available. State clearly when browser checks were not performed.
+- Use targeted checks with existing tools where practical. Do not leave temporary validation scripts or generated artefacts in the repository unless they are intentionally part of the solution.
+- Summarise what changed, what validation actually ran and any remaining limitations. Do not invent successful tests or visual verification.

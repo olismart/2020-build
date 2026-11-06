@@ -107,6 +107,9 @@ header p{
 	order: 3;
 	flex-basis: 100%;
 }
+header p a[aria-current]{
+	color: var(--text-color);
+}
 
 /* ── Theme toggle ───────────────────────────────────────────────────
    A switch at the top right of the header: the thumb carries the icon of
@@ -236,7 +239,7 @@ pre{
 	border-radius: 0.125em;
 }
 
-.body-text, .item li, .blog-preview li{
+.body-text, .item li, .blog-preview li, .item p{
 	max-width: 50ch;
 }
 
